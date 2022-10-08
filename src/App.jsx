@@ -1,25 +1,22 @@
 import React, { useState } from "react";
-import { Button, Center, Box, VStack, Text, Flex,useColorMode } from "@chakra-ui/react";
-import { render } from "react-dom";
+import { Button, Center, Box, VStack, Text, Flex,useColorMode, Switch, color, Fade } from "@chakra-ui/react";
 const App = () => {
   console.log("rerender");
   const { colorMode, toggleColorMode } = useColorMode()
   console.log(colorMode)
-
+ 
   return (
     <VStack alignItems="center" justifyContent="center" h="100vh" w="100%">
       <Text size={["xl", "lg", "md"]} fontWeight="extrabold">
-        App
+        App {colorMode}
       </Text>
-      <Button
-        onClick={toggleColorMode}
-        variant="solid"
-        borderRadius="25px"
-        size={["5xl", "lg", "sm"]}
-        colorScheme={"teal"}
-      >
-        toggle
-      </Button>
+      <Switch
+        size={'lg'}
+        id='darkmode'
+        colorScheme='teal'
+        isChecked={colorMode==='dark' && true}
+        onChange={toggleColorMode}
+      /> 
     </VStack>
   );
 };
